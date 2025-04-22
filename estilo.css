@@ -1,0 +1,62 @@
+/* 
+      1) We want the grid to be centered, 
+      2) We'll add a 3D perspective on a parent container 
+      so we can rotate the grid in response to mouse movements.
+    */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #0A2A43; /* dark blue */
+      background:url(blue.webp);
+      color: #fff;
+      overflow: hidden; /* to avoid scrollbars if rotating out of bounds */
+    }
+
+    .scene {
+      /* The container that holds the grid and has perspective. */
+      width: 100%;
+      height: 100%;
+      perspective: 800px; /* Adjust for stronger/weaker 3D effect */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .grid-container {
+      /* This is the grid itself, with transform-style: preserve-3d
+         so child elements can move in 3D. */
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-gap: 20px;
+      padding: 20px;
+      transform-style: preserve-3d;
+      transition: transform 0.3s ease; /* so the rotation is a bit smoother */
+      max-width: 90vw; /* keep it within the viewport */
+      max-height: 80vh;
+    }
+
+    .chart-box {
+      background-color: rgba(66,134,205,0.3);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      transition: all 2s ease; /* For the hover pop-out effect */
+      backdrop-filter:blur(5px);
+      box-shadow:0px 0px 0px white;
+    }
+
+    .chart-title {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+    }
+
+    /* 
+      3D "pop forward" on hover. 
+      We translateZ a bit so it appears closer to the user.
+    */
+    .chart-box:hover {
+      transform: translateZ(50px);
+      box-shadow:0px 0px 30px white;
+    }

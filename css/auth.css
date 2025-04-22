@@ -1,0 +1,102 @@
+/* css/auth.css */
+@import url('https://static.jocarsa.com/fuentes/ubuntu-font-family-0.83/ubuntu.css');
+
+/* Apply a gradient background and center the form */
+body {
+  background: linear-gradient(135deg, #0A2A43, #1B3B5A);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  font-family: Ubuntu, sans-serif;
+}
+
+/* Form container styling */
+.form-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  width: 100%;
+  max-width: 400px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Form title styling */
+.form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #FFD700;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* Error message styling */
+.error {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ffdddd;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #fff;
+  font-size: 0.9rem;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+.form-group input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Button styling */
+.btn {
+  width: 100%;
+  padding: 12px;
+  background: #f8b400;
+  color: #0A2A43;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.btn:hover {
+  background: #ffd700;
+}
+
+/* Switch link styling (for navigation between forms) */
+.switch {
+  text-align: center;
+  margin-top: 15px;
+}
+.switch a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.switch a:hover {
+  color: #f8b400;
+}
+
