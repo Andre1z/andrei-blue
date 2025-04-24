@@ -28,14 +28,14 @@ if ($numCharts == 1) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>jocarsa | blue</title>
+  <title>andrei | blue</title>
   <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-  <h1><img src="blue.png">jocarsa | blue</h1>
+  <h1><img src="blue.png">andrei | blue</h1>
   <p><a href="logout.php">Logout</a></p>
 
   <!-- 3D Scene Container -->
