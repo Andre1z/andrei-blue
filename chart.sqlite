@@ -1,0 +1,19 @@
+-- Tabla de usuarios
+CREATE TABLE IF NOT EXISTS users (
+  identificador INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT UNIQUE,
+  name TEXT,
+  email TEXT,
+  password TEXT
+);
+
+-- Tabla de gráficos con clave foránea a users.identificador
+CREATE TABLE IF NOT EXISTS charts (
+  identificador INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id INTEGER,
+  chart_name TEXT,
+  chart_type TEXT,
+  data_url TEXT,
+  importance INTEGER DEFAULT 1,
+  FOREIGN KEY (user_id) REFERENCES users(identificador) ON DELETE CASCADE
+);
