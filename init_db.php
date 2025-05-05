@@ -2,36 +2,42 @@
 // init_db.php
 require_once 'config.php';
 
-// Create users table
+$db = new PDO('sqlite:chart.sqlite');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+// Importante: activar soporte para claves foráneas en SQLite
+$db->exec("PRAGMA foreign_keys = ON");
+
+// Crear tabla de usuarios
 $db->exec("CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    identificador INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE,
     name TEXT,
     email TEXT,
     password TEXT
 )");
 
-// Create charts table with the new 'importance' column
+// Crear tabla de gráficos con FK hacia users(identificador)
 $db->exec("CREATE TABLE IF NOT EXISTS charts (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    identificador INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
     chart_name TEXT,
     chart_type TEXT,
     data_url TEXT,
     importance INTEGER DEFAULT 1,
-    FOREIGN KEY(user_id) REFERENCES users(id)
+    FOREIGN KEY(user_id) REFERENCES users(identificador) ON DELETE CASCADE
 )");
 
-// Insert initial user if not exists
+// Insertar usuario inicial si no existe
 $stmt = $db->prepare("SELECT COUNT(*) FROM users WHERE username = :username");
 $stmt->execute([':username' => 'jocarsa']);
 if ($stmt->fetchColumn() == 0) {
     $hashedPassword = password_hash('jocarsa', PASSWORD_DEFAULT);
     $stmt = $db->prepare("INSERT INTO users (username, name, email, password) VALUES (:username, :name, :email, :password)");
     $stmt->execute([
-        ':username' => 'jocarsa',
-        ':name' => 'Jose Vicente Carratala',
-        ':email' => 'info@josevicentecarratala.com',
+        ':username' => 'andre1z',
+        ':name' => 'Andrei Buga',
+        ':email' => 'bugaandrei1@gmail.com',
         ':password' => $hashedPassword
     ]);
     echo "Initial user created.\n";
@@ -41,4 +47,3 @@ if ($stmt->fetchColumn() == 0) {
 
 echo "Database initialized successfully.";
 ?>
-
