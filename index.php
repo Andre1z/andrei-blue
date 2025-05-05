@@ -7,7 +7,7 @@ if (isset($_SESSION['user_id'])) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Login or Register</title>
