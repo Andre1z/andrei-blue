@@ -56,7 +56,7 @@ if ($numCharts == 1) {
         ?>
         <div class="chart-container"
              style="<?php echo $gridStyle; ?>"
-             identificador="chart-<?php echo htmlspecialchars($chart['identificador']); ?>"
+             id="chart-<?php echo htmlspecialchars($chart['identificador']); ?>"
              data-chart-type="<?php echo htmlspecialchars($chart['chart_type']); ?>"
              data-data-url="<?php echo htmlspecialchars($chart['data_url']); ?>">
           <h3><?php echo htmlspecialchars($chart['chart_name']); ?></h3>
