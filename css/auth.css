@@ -64,10 +64,15 @@ body {
   border: none;
   border-radius: 6px;
   font-size: 1rem;
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
   transition: background 0.3s ease, transform 0.2s ease;
+  background-color: #1b3b5a; /* Fondo oscuro */
+  color: #ffffff;            /* Texto claro */
 }
+.form-group select option {
+  background-color: #1b3b5a; /* Fondo oscuro para opciones */
+  color: #ffffff;            /* Texto blanco */
+}
+
 .form-group input:focus,
 .form-group select:focus {
   background: rgba(255, 255, 255, 0.25);

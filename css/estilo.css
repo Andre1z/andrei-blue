@@ -121,6 +121,10 @@ h1 img {
   background-color: #ffd700;
   transform: scale(1.1);
 }
+a {
+  color: white;
+  text-decoration: none;
+}
 
 /* Responsive ajustes para móviles */
 @media (max-width: 600px) {
